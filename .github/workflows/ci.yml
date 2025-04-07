@@ -13,11 +13,8 @@ on:
 jobs:
   build-java:
 
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-    
+    runs-on: ubuntu-latest
+       
     steps:
     - uses: actions/checkout@v2
 
@@ -35,7 +32,7 @@ jobs:
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: nanajanashia/demo-app
+        image: kben2025/my-project-d:tagname
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
